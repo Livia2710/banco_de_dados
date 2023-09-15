@@ -40,3 +40,30 @@ CREATE TABLE produtos (
 )
 
 ```
+
+<!-- ________________________________ -->
+
+<!-- h3 -->
+### Adicionar campo/coluna em uma tabela
+
+```sql 
+
+ALTER TABLE produtos ADD fabricante_id INT NOT NULL
+AFTER quantidade;
+
+```
+
+<!-- ________________________________ -->
+
+<!-- h3 -->
+### Criação da chave estrangeira (relacionamento entre tabelas)
+
+```sql 
+ALTER TABLE produtos
+# CONSTRAINT é uma restrição definifida no relacionamento
+ADD CONSTRAINT fk_produtos_fabricantes
+
+#A chave estrangeira deve fazer referencia a chave primaria
+FOREIGN KEY(fabricante_id) REFERENCES fabricantes(id)
+
+```
