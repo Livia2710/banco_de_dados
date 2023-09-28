@@ -3,14 +3,20 @@
 ### Criar banco de dados
 ```sql
 
--- 1ª Digitação (SQL para criar o Banco de dados)
+ CREATE DATABASE tecdev_escola_livia CHARACTER SET utf8mb4;
 
 ```
 <!-- ____________________________________________________________________ -->
 ### Criar tabela cursos
 ```sql
 
--- 2ª Digitação (SQL para criar a tabela Cursos)
+CREATE TABLE cursos (
+    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    titulo VARCHAR(30) NOT NULL ,
+    carga_horaria SMALLINT,
+
+)
+
 
 
 ```
@@ -18,7 +24,13 @@
 ### Criar tabela professores
 ```sql
 
--- 3ª Digitação (SQL para criar a tabela Professores)
+CREATE TABLE professores (
+    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(50) NOT NULL ,
+    area_de_atuacao ENUM('infra','design', 'desenvolvimento'),
+    
+);
+
 
 
 ```
@@ -26,8 +38,26 @@
 ### Criar tabela alunos
 ```sql
 
--- 4ª Digitação (SQL para criar a tabela Alunos)
+CREATE TABLE alunos (
+    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(30) NOT NULL ,
+    data_de_nascimento DATE ,
+    primeira_nota DECIMAL(4,2),
+    segunda_nota DECIMAL(4,2),
+    
+)
 
+
+
+```
+
+```sql
+
+ALTER TABLE cursos ADD professor_id INT NOT NULL
+AFTER carga_horaria;
+
+ALTER TABLE professores ADD curso_id INT NOT NULL
+AFTER area_de_atuacao;
 
 ```
 <!-- ____________________________________________________________________ -->
